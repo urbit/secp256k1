@@ -15,6 +15,7 @@
 /* #undef ENABLE_MODULE_ECDH */
 
 /* Define this symbol to enable the ECDSA pubkey recovery module */
+
 #define ENABLE_MODULE_RECOVERY  
 
 /* Define this symbol if OpenSSL EC functions are available */
