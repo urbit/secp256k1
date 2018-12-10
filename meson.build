@@ -14,12 +14,6 @@ src = [
 
 include_dirs = include_directories('src/')
 
-install_headers(
-	'include/secp256k1.h',
-	'include/secp256k1_ecdh.h',
-	'include/secp256k1_recovery.h',
-	subdir:'secp256k1')
-
 lib = static_library('secp256k1',
 	sources: src,
 	include_directories : include_dirs,
@@ -33,7 +27,7 @@ lib = static_library('secp256k1',
 			  # '-DUSE_SCALAR_4X64'
 		],
 		# , '-DHAVE_CONFIG_H', '-DSECP256K1_BUILD' ],
-	install: true)
+	install: false)
 
 secp256k1_dep = declare_dependency(include_directories : include_dirs, link_with : lib)
 
