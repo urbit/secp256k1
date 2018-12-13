@@ -12,7 +12,13 @@ src = [
 # 'src/bench_ecmult.c'
 ]
 
-include_dirs = include_directories('src/')
+osdet = build_machine.system()
+
+if osdet == 'openbsd'
+  include_dirs = include_directories('src/', '/usr/local/include')
+else
+  include_dirs = include_directories('src/')
+endif
 
 lib = static_library('secp256k1',
 	sources: src,
@@ -30,5 +36,3 @@ lib = static_library('secp256k1',
 	install: false)
 
 secp256k1_dep = declare_dependency(include_directories : include_dirs, link_with : lib)
-
-
