@@ -12,7 +12,7 @@ src = [
 # 'src/bench_ecmult.c'
 ]
 
-osdet = build_machine.system()
+osdet = host_machine.system()
 
 if osdet == 'openbsd'
   include_dirs = include_directories('src/', '/usr/local/include')
